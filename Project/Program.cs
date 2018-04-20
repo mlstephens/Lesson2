@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lesson2
 {
@@ -10,6 +6,11 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
+            ArgumentsClass arguments = new ArgumentsClass(args);
+
+            Console.WriteLine(arguments.IsCommandLineValid
+                ? arguments.GetTotal().ToString()
+                : "Invalid CommandLine.");
         }
     }
 }
