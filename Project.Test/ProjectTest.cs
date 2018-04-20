@@ -19,9 +19,10 @@ namespace Project.Test
 
             //act
             ArgumentsClass argumentClass = new ArgumentsClass(arguments);
+            double actualValue = Math.Round(argumentClass.GetTotal(), 4);
 
             //assert
-            Assert.AreEqual(expectedTotal, argumentClass.GetTotal(), "CommandLine Argument Valid Integer Numeric Values.");
+            Assert.AreEqual(expectedTotal, actualValue, "CommandLine Argument Valid Integer Numeric Values.");
         }
 
         [TestMethod]
@@ -101,9 +102,10 @@ namespace Project.Test
 
             //act
             ArgumentsClass argumentClass = new ArgumentsClass(arguments);
+            double actualValue = Math.Round(argumentClass.GetTotal(), 4);
 
             //assert
-            Assert.AreEqual(expectedTotal, argumentClass.GetTotal(), "CommandLine Arguments Invalid Value Types.");
+            Assert.AreEqual(expectedTotal, actualValue, "CommandLine Arguments Invalid Value Types.");
         }
     }
 }
