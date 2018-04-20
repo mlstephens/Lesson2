@@ -9,7 +9,11 @@ namespace Lesson2
 {
     public class ArgumentsClass
     {
-        private const char _seperator = '=';
+        private const char _nameSeperator = '=';
+        private const char _valueSeperator = ',';
+        private const string _addArgumentName = "added=";
+        private const string _subtractArgumentName = "subtracted=";
+
         private List<string> _arguments = new List<string>();
 
         public ArgumentsClass(string[] arguments)
@@ -17,18 +21,19 @@ namespace Lesson2
             _arguments = arguments.ToList();
         }
 
-        private List<double> NumbersToAdd { get => GetNumbers("added="); }
-        private List<double> NumbersToSubtract { get => GetNumbers("subtracted="); }
+        private List<double> NumbersToAdd { get => GetNumbers(_addArgumentName); }
 
-        public bool IsCommandLineValid { get => _arguments.Any() && !_arguments.Any(a => a.Split(_seperator).Length != 2); }
+        private List<double> NumbersToSubtract { get => GetNumbers(_subtractArgumentName); }
 
-        private List<double> GetNumbers( string type)
+        public bool IsCommandLineValid { get => _arguments.Any() && !_arguments.Any(a => a.Split(_nameSeperator).Length != 2); }
+
+        private List<double> GetNumbers(string argumentType)
         {
             List<double> argumentList = new List<double>();
 
-            if (_arguments.Any(a => a.Contains(type)))
+            if (_arguments.Any(a => a.Contains(argumentType)))
             {
-                var arguments = _arguments.Find(a => a.Contains(type)).Substring(type.Length).Split(',').ToList();
+                var arguments = _arguments.Find(a => a.Contains(argumentType)).Substring(argumentType.Length).Split(_valueSeperator).ToList();
                 argumentList = arguments.Where(a => Double.TryParse(a, out double value)).Select(double.Parse).ToList();
             }            
 
