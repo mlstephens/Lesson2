@@ -113,7 +113,7 @@ namespace Project.Test
         #region  ' Struct Tests '
 
         [TestMethod]
-        public void Struct_CommandLineArguments_ValidFormat_ValidArgumentFormat()
+        public void Struct_CommandLineArguments_ValidArgumentFormat()
         {
             //arrange
             string[] arguments = new string[2];

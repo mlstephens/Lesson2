@@ -28,7 +28,7 @@ namespace Lesson2
             //if we have arguments then build an array of just the numeric values for specified argument type
             if (_arguments.Any(a => a.Contains(argumentType)))
             {
-                argumentArray = _arguments.FirstOrDefault(a => a.Contains(argumentType))
+                argumentArray = _arguments.First(a => a.Contains(argumentType))
                     .Substring(argumentType.Length)
                     .Split(_valueSeperator)
                     .Where(a => Double.TryParse(a, out double value))
@@ -43,7 +43,7 @@ namespace Lesson2
 
         public double GetTotal()
         {
-            return Math.Round(NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n),4);
+            return Math.Round(NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n), 4);
         }
     }
 }
