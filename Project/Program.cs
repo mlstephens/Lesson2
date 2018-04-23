@@ -6,7 +6,7 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            ArgumentsClass arguments = new ArgumentsClass(args);
+            ArgumentsStruct arguments = new ArgumentsStruct(args);
 
             Console.WriteLine(arguments.IsCommandLineValid
                 ? arguments.GetTotal().ToString()
