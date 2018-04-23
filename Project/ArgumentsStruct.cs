@@ -43,7 +43,7 @@ namespace Lesson2
 
         public double GetTotal()
         {
-            return (NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n));
+            return Math.Round(NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n),4);
         }
     }
 }

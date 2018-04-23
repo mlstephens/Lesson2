@@ -21,7 +21,7 @@ namespace Project.Test
 
             //act
             ArgumentsStruct argumentClass = new ArgumentsStruct(arguments);
-            double actualValue = Math.Round(argumentClass.GetTotal(), 4);
+            double actualValue = argumentClass.GetTotal();
 
             //assert
             Assert.AreEqual(expectedTotal, actualValue);
@@ -44,7 +44,7 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void Struct_CommandLineArguments_ArgumentsMissing()
+        public void Struct_CommandLineArguments_NoArguments()
         {
             //arrange
             string[] arguments = Array.Empty<string>();
