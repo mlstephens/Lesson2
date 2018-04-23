@@ -6,10 +6,16 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            ArgumentsStruct arguments = new ArgumentsStruct(args);
+            ArgumentsClass classArguments = new ArgumentsClass(args);
 
-            Console.WriteLine(arguments.IsCommandLineValid
-                ? arguments.GetTotal().ToString()
+            Console.WriteLine(classArguments.IsCommandLineValid
+                ? classArguments.GetTotal().ToString()
+                : "Invalid CommandLine.");
+
+            ArgumentsStruct structArguments = new ArgumentsStruct(args);
+
+            Console.WriteLine(structArguments.IsCommandLineValid
+                ? structArguments.GetTotal().ToString()
                 : "Invalid CommandLine.");
         }
     }
