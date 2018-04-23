@@ -21,8 +21,6 @@ namespace Lesson2
 
         private double[] NumbersToSubtract { get => GetNumbers(_subtractArgumentName); }
 
-        public bool IsCommandLineValid { get => _arguments.Any() && !_arguments.Any(a => a.Split(_nameSeperator).Length != 2); }
-
         private double[] GetNumbers(string argumentType)
         {
             double[] argumentArray = Array.Empty<double>();
@@ -30,8 +28,7 @@ namespace Lesson2
             //if we have arguments then build an array of just the numeric values for specified argument type
             if (_arguments.Any(a => a.Contains(argumentType)))
             {
-                argumentArray = _arguments.ToList()
-                    .Find(a => a.Contains(argumentType))
+                argumentArray = _arguments.FirstOrDefault(a => a.Contains(argumentType))
                     .Substring(argumentType.Length)
                     .Split(_valueSeperator)
                     .Where(a => Double.TryParse(a, out double value))
@@ -42,9 +39,11 @@ namespace Lesson2
             return argumentArray;
         }
 
+        public bool IsCommandLineValid { get => _arguments.Any() && !_arguments.Any(a => a.Split(_nameSeperator).Length != 2); }
+
         public double GetTotal()
         {
-            return (NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n));
+            return Math.Round(NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n),4);
         }
     }
 }
