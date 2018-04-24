@@ -20,11 +20,11 @@ namespace Project.Test
             arguments[1] = "subtracted=1,2,5.9,42.09";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
+            double actualValue = argumentsClass.GetTotal();
 
             //assert
-            Assert.IsTrue(argumentClass.IsCommandLineValid);
+            Assert.IsTrue(argumentsClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -38,10 +38,10 @@ namespace Project.Test
             arguments[1] = "subtracted:6,7,8,9,10";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
 
             //assert
-            Assert.IsFalse(argumentClass.IsCommandLineValid);
+            Assert.IsFalse(argumentsClass.IsCommandLineValid);
         }
 
         [TestMethod]
@@ -51,10 +51,10 @@ namespace Project.Test
             string[] arguments = Array.Empty<string>();
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
 
             //assert
-            Assert.IsFalse(argumentClass.IsCommandLineValid);
+            Assert.IsFalse(argumentsClass.IsCommandLineValid);
         }
 
         [TestMethod]
@@ -68,11 +68,11 @@ namespace Project.Test
             arguments[1] = "subtracted=1.25,2.0,e,f,g,i";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
+            double actualValue = argumentsClass.GetTotal();
 
             //assert
-            Assert.IsTrue(argumentClass.IsCommandLineValid);
+            Assert.IsTrue(argumentsClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -86,11 +86,11 @@ namespace Project.Test
             arguments[0] = "added=1,2,3.5";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
+            double actualValue = argumentsClass.GetTotal();
 
             //assert
-            Assert.IsTrue(argumentClass.IsCommandLineValid);
+            Assert.IsTrue(argumentsClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -104,11 +104,11 @@ namespace Project.Test
             arguments[0] = "subtracted=1,2,3.5";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
+            double actualValue = argumentsClass.GetTotal();
 
             //assert
-            Assert.IsTrue(argumentClass.IsCommandLineValid);
+            Assert.IsTrue(argumentsClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -127,11 +127,11 @@ namespace Project.Test
             arguments[1] = "subtracted=1,2,5.9,25.73";
 
             //act
-            ArgumentsPartialClass argumentClass = new ArgumentsPartialClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
+            double actualValue = argumentsPartialClass.GetTotal();
 
             //assert
-            Assert.IsTrue(argumentClass.IsCommandLineValid);
+            Assert.IsTrue(argumentsPartialClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -145,10 +145,10 @@ namespace Project.Test
             arguments[1] = "subtracted:6,7,8,9,10";
 
             //act
-            ArgumentsPartialClass argumentClass = new ArgumentsPartialClass(arguments);
+            ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
 
             //assert
-            Assert.IsFalse(argumentClass.IsCommandLineValid);
+            Assert.IsFalse(argumentsPartialClass.IsCommandLineValid);
         }
 
         [TestMethod]
@@ -158,10 +158,10 @@ namespace Project.Test
             string[] arguments = Array.Empty<string>();
 
             //act
-            ArgumentsPartialClass argumentClass = new ArgumentsPartialClass(arguments);
+            ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
 
             //assert
-            Assert.IsFalse(argumentClass.IsCommandLineValid);
+            Assert.IsFalse(argumentsPartialClass.IsCommandLineValid);
         }
 
         [TestMethod]
@@ -175,11 +175,11 @@ namespace Project.Test
             arguments[1] = "subtracted=12,31.456,Z";
 
             //act
-            ArgumentsPartialClass argumentClass = new ArgumentsPartialClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
+            double actualValue = argumentsPartialClass.GetTotal();
 
             //assert
-            Assert.IsTrue(argumentClass.IsCommandLineValid);
+            Assert.IsTrue(argumentsPartialClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -193,11 +193,11 @@ namespace Project.Test
             arguments[0] = "added=45.76756,10,2.005";
 
             //act
-            ArgumentsPartialClass argumentClass = new ArgumentsPartialClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
+            double actualValue = argumentsPartialClass.GetTotal();
 
             //assert
-            Assert.IsTrue(argumentClass.IsCommandLineValid);
+            Assert.IsTrue(argumentsPartialClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -211,11 +211,11 @@ namespace Project.Test
             arguments[0] = "subtracted=1,2,3.5";
 
             //act
-            ArgumentsPartialClass argumentClass = new ArgumentsPartialClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
+            double actualValue = argumentsPartialClass.GetTotal();
 
             //assert
-            Assert.IsTrue(argumentClass.IsCommandLineValid);
+            Assert.IsTrue(argumentsPartialClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
