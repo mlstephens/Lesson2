@@ -24,6 +24,7 @@ namespace Project.Test
             double actualValue = argumentClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -71,6 +72,7 @@ namespace Project.Test
             double actualValue = argumentClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -88,6 +90,7 @@ namespace Project.Test
             double actualValue = argumentClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -105,6 +108,7 @@ namespace Project.Test
             double actualValue = argumentClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -127,6 +131,7 @@ namespace Project.Test
             double actualValue = argumentClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -167,13 +172,14 @@ namespace Project.Test
             double expectedTotal = 87.344;
 
             arguments[0] = "added=55,75.8,A,d";
-            arguments[1] = "subtracted=subtracted=12,31.456,Z";
+            arguments[1] = "subtracted=12,31.456,Z";
 
             //act
             ArgumentsPartialClass argumentClass = new ArgumentsPartialClass(arguments);
             double actualValue = argumentClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -191,6 +197,7 @@ namespace Project.Test
             double actualValue = argumentClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -208,6 +215,7 @@ namespace Project.Test
             double actualValue = argumentClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
