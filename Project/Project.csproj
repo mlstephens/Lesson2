@@ -62,6 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArgumentsClass.cs" />
+    <Compile Include="ArgumentsPartialClass.cs" />
+    <Compile Include="ArgumentsPartialClass_BusinessLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

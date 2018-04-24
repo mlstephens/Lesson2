@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Lesson2
 {
@@ -6,10 +7,18 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            ArgumentsClass arguments = new ArgumentsClass(args);
+            args = args.Select(a => a.ToLower()).ToArray();
 
-            Console.WriteLine(arguments.IsCommandLineValid
-                ? arguments.GetTotal().ToString()
+            //class
+            ArgumentsClass argumentsClass = new ArgumentsClass(args);
+            Console.WriteLine(argumentsClass.IsCommandLineValid
+                ? argumentsClass.GetTotal().ToString()
+                : "Invalid CommandLine.");
+
+            //partial class
+            ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(args);
+            Console.WriteLine(argumentsPartialClass.IsCommandLineValid
+                ? argumentsPartialClass.GetTotal().ToString()
                 : "Invalid CommandLine.");
         }
     }
