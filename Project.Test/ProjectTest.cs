@@ -129,12 +129,12 @@ namespace Project.Test
         {
             //arrange
             string[] arguments = new string[4];
-            double expectedTotal = 26.61;
+            double expectedTotal = 19.92;
 
             arguments[0] = "-added";
-            arguments[1] = "1.5,2,3.5,4,66.60";
+            arguments[1] = "1.5,2,3.5,4,43.55";
             arguments[2] = "-subtracted";
-            arguments[3] = "1,2,5.9,42.09";
+            arguments[3] = "1,2,5.9,25.73";
 
             //act
             ArgumentsStruct argumentsStruct = new ArgumentsStruct(arguments);
@@ -181,12 +181,12 @@ namespace Project.Test
         {
             //arrange
             string[] arguments = new string[4];
-            double expectedTotal = 3.25;
+            double expectedTotal = 87.344;
 
             arguments[0] = "-added";
-            arguments[1] = "1,2,3.5,b,c,d";
+            arguments[1] = "55,75.8,A,d";
             arguments[2] = "-subtracted";
-            arguments[3] = "1.25,2.0,e,f,g,i";
+            arguments[3] = "12,31.456,Z";
 
             //act
             ArgumentsStruct argumentsStruct = new ArgumentsStruct(arguments);
@@ -202,10 +202,10 @@ namespace Project.Test
         {
             //arrange
             string[] arguments = new string[2];
-            double expectedTotal = 6.50;
+            double expectedTotal = 57.7726;
 
             arguments[0] = "-added";
-            arguments[1] = "1,2,3.5";
+            arguments[1] = "45.76756,10,2.005";
 
             //act
             ArgumentsStruct argumentsStruct = new ArgumentsStruct(arguments);
