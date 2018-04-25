@@ -22,8 +22,8 @@ namespace Project.Test
             arguments[3] = "1,2,5.9,42.09";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
+            double actualValue = argumentsClass.GetTotal();
 
             //assert
             Assert.AreEqual(expectedTotal, actualValue);
@@ -41,10 +41,10 @@ namespace Project.Test
             arguments[3] = "6,7,8,9,10";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
 
             //assert
-            Assert.IsFalse(argumentClass.IsCommandLineValid);
+            Assert.IsFalse(argumentsClass.IsCommandLineValid);
         }
 
         [TestMethod]
@@ -54,10 +54,10 @@ namespace Project.Test
             string[] arguments = Array.Empty<string>();
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
 
             //assert
-            Assert.IsFalse(argumentClass.IsCommandLineValid);
+            Assert.IsFalse(argumentsClass.IsCommandLineValid);
         }
 
         [TestMethod]
@@ -73,8 +73,8 @@ namespace Project.Test
             arguments[3] = "1.25,2.0,e,f,g,i";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
+            double actualValue = argumentsClass.GetTotal();
 
             //assert
             Assert.AreEqual(expectedTotal, actualValue);
@@ -91,8 +91,8 @@ namespace Project.Test
             arguments[1] = "1,2,3.5";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
+            double actualValue = argumentsClass.GetTotal();
 
             //assert
             Assert.AreEqual(expectedTotal, actualValue);
@@ -109,8 +109,8 @@ namespace Project.Test
             arguments[1] = "1,2,3.5";
 
             //act
-            ArgumentsClass argumentClass = new ArgumentsClass(arguments);
-            double actualValue = argumentClass.GetTotal();
+            ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
+            double actualValue = argumentsClass.GetTotal();
 
             //assert
             Assert.AreEqual(expectedTotal, actualValue);
