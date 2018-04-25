@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Lesson2
@@ -7,49 +8,47 @@ namespace Lesson2
     {
         private const char _nameSeperator = '=';
         private const char _valueSeperator = ',';
-        private const string _addArgumentName = "added=";
-        private const string _subtractArgumentName = "subtracted=";
+        private const string _addArgumentName = "-added";
+        private const string _subtractArgumentName = "-subtracted";
 
-        public static string[] _arguments = Array.Empty<string>();
+        private static List<string> _argumentsList = new List<string>();
 
         public ArgumentsStruct(string[] arguments)
         {
-            _arguments = arguments;
+            _argumentsList = arguments.ToList();
         }
 
-        private double[] NumbersToAdd { get => GetNumbers(_addArgumentName); }
+        private List<double> NumbersToAdd { get => GetNumbers(_addArgumentName); }
 
-        private double[] NumbersToSubtract { get => GetNumbers(_subtractArgumentName); }
+        private List<double> NumbersToSubtract { get => GetNumbers(_subtractArgumentName); }
 
         /// <summary>
-        /// GetNumbers: creates an array of numeric argument values
+        /// GetNumbers: creates an list of numeric argument key values
         /// </summary>
         /// <param name="argumentNameValue">the argument name value</param>
-        /// <returns>an array of numeric doubles</returns>
-        private double[] GetNumbers(string argumentNameValue)
+        /// <returns>an list of numeric doubles</returns>
+        private List<double> GetNumbers(string argumentNameValue)
         {
-            double[] argumentArray = Array.Empty<double>();
+            List<double> argumentKeyValues = new List<double>();
 
-            //if we have arguments then build an array of just the numeric values for specified argument type
-            if (_arguments.Any(a => a.Contains(argumentNameValue)))
-            {
-                argumentArray = _arguments.First(a => a.Contains(argumentNameValue))
-                    .Substring(argumentNameValue.Length)
-                    .Split(_valueSeperator)
-                    .Where(a => Double.TryParse(a, out double value))
-                    .Select(double.Parse)
-                    .ToArray();
-            }
+            //find that namevalue
+            argumentKeyValues = _argumentsList.SkipWhile(a => a != argumentNameValue)
+                .Skip(1)
+                .DefaultIfEmpty(string.Empty).First()
+                .Split(_valueSeperator)
+                .Where(a => Double.TryParse(a, out double value))
+                .Select(Double.Parse)
+                .ToList();
 
-            return argumentArray;
+            return argumentKeyValues;
         }
 
-        public bool IsCommandLineValid { get => _arguments.Any() && !_arguments.Any(a => a.Split(_nameSeperator).Length != 2); }
+        public bool IsCommandLineValid { get => _argumentsList.Any() && (_argumentsList.Any(a => a == _addArgumentName) || _argumentsList.Any(a => a == _subtractArgumentName)); }
 
         /// <summary>
-        /// GetTotal: returns the total for the numeric argument values
+        /// GetTotal: returns the total for the numeric argument key values
         /// </summary>
-        /// <returns>total as double</returns>
+        /// <returns>double numeric total</returns>
         public double GetTotal()
         {
             return Math.Round(NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n), 4);
