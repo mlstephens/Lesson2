@@ -26,6 +26,7 @@ namespace Project.Test
             double actualValue = argumentsClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentsClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -77,6 +78,7 @@ namespace Project.Test
             double actualValue = argumentsClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentsClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -95,6 +97,7 @@ namespace Project.Test
             double actualValue = argumentsClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentsClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
@@ -113,6 +116,7 @@ namespace Project.Test
             double actualValue = argumentsClass.GetTotal();
 
             //assert
+            Assert.IsTrue(argumentsClass.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
