@@ -229,7 +229,7 @@ namespace Project.Test
             //act
             ArgumentsStruct argumentsStruct = new ArgumentsStruct(arguments);
             double actualValue = argumentsStruct.GetTotal();
-
+            
             //assert
             Assert.IsTrue(argumentsStruct.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualValue);
