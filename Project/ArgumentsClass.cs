@@ -22,11 +22,11 @@ namespace Lesson2
 
         private List<double> NumbersToSubtract { get => GetNumbers(_subtractArgumentName); }
 
-        /// <summary>
-        /// GetNumbers: creates an list of numeric argument key values
-        /// </summary>
-        /// <param name="argumentNameValue">the argument name value</param>
-        /// <returns>an list of numeric doubles</returns>
+       /// <summary>
+       /// GetNumbers: creates an list of numeric argument key values
+       /// </summary>
+       /// <param name="argumentNameValue">the argument name value</param>
+       /// <returns>an list of numeric doubles</returns>
         private List<double> GetNumbers(string argumentNameValue)
         {
             List<double> argumentKeyValues = new List<double>();
@@ -44,12 +44,12 @@ namespace Lesson2
             return argumentKeyValues;
         }
 
-        public bool IsCommandLineValid { get => _argumentsList.Any() && (_argumentsList.Any(a => a == _addArgumentName) || _argumentsList.Any(a => a == _subtractArgumentName)); }
+        public bool IsCommandLineValid { get => _argumentsList.Any() && ( _argumentsList.Any(a => a == _addArgumentName) || _argumentsList.Any(a => a == _subtractArgumentName)); }
 
-        /// <summary>
-        /// GetTotal: returns the total for the numeric argument key values
-        /// </summary>
-        /// <returns>double numeric total</returns>
+       /// <summary>
+       /// GetTotal: returns the total for the numeric argument key values
+       /// </summary>
+       /// <returns>double numeric total</returns>
         public double GetTotal()
         {
             return Math.Round(NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n), 4);
