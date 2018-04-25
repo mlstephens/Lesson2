@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Lesson2
@@ -8,32 +9,30 @@ namespace Lesson2
         private const char _valueSeperator = ',';
 
         /// <summary>
-        /// GetNumbers: creates an array of numeric argument values
+        /// GetNumbers: creates an list of numeric argument key values
         /// </summary>
         /// <param name="argumentNameValue">the argument name value</param>
-        /// <returns>an array of numeric doubles</returns>
-        private double[] GetNumbers(string argumentNameValue)
+        /// <returns>an list of numeric doubles</returns>
+        private List<double> GetNumbers(string argumentNameValue)
         {
-            double[] argumentArray = Array.Empty<double>();
+            List<double> argumentKeyValues = new List<double>();
 
-            //if we have arguments then build an array of just the numeric values for specified argument type
-            if (Arguments.Any(a => a.Contains(argumentNameValue)))
-            {
-                argumentArray = Arguments.First(a => a.Contains(argumentNameValue))
-                    .Substring(argumentNameValue.Length)
-                    .Split(_valueSeperator)
-                    .Where(a => Double.TryParse(a, out double value))
-                    .Select(double.Parse)
-                    .ToArray();
-            }
+            //find that namevalue
+            argumentKeyValues = ArgumentsList.SkipWhile(a => a != argumentNameValue)
+                .Skip(1)
+                .DefaultIfEmpty(string.Empty).First()
+                .Split(_valueSeperator)
+                .Where(a => Double.TryParse(a, out double value))
+                .Select(Double.Parse)
+                .ToList();
 
-            return argumentArray;
+            return argumentKeyValues;
         }
 
         /// <summary>
-        /// GetTotal: returns the total for the numeric argument values
+        /// GetTotal: returns the total for the numeric argument key values
         /// </summary>
-        /// <returns></returns>
+        /// <returns>double numeric total</returns>
         public double GetTotal()
         {
             return Math.Round(NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n), 4);

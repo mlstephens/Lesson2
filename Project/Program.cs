@@ -7,7 +7,7 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            //handle potential upper case arguments
+            //handle potential upper case argument name values
             args = args.Select(a => a.ToLower()).ToArray();
 
             //class

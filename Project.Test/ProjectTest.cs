@@ -13,11 +13,13 @@ namespace Project.Test
         public void CommandLineArguments_ValidArgumentFormat()
         {
             //arrange
-            string[] arguments = new string[2];
+            string[] arguments = new string[4];
             double expectedTotal = 26.61;
 
-            arguments[0] = "added=1.5,2,3.5,4,66.60";
-            arguments[1] = "subtracted=1,2,5.9,42.09";
+            arguments[0] = "-added";
+            arguments[1] = "1.5,2,3.5,4,66.60";
+            arguments[2] = "-subtracted";
+            arguments[3] = "1,2,5.9,42.09";
 
             //act
             ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
@@ -32,10 +34,12 @@ namespace Project.Test
         public void CommandLineArguments_InvalidArgumentFormat()
         {
             //arrange
-            string[] arguments = new string[2];
+            string[] arguments = new string[4];
 
-            arguments[0] = "added=1,2,3,4,5";
-            arguments[1] = "subtracted:6,7,8,9,10";
+            arguments[0] = "added";
+            arguments[1] = "1,2,3,4,5";
+            arguments[2] = "subtracted";
+            arguments[3] = "6,7,8,9,10";
 
             //act
             ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
@@ -61,11 +65,13 @@ namespace Project.Test
         public void CommandLineArguments_NonNumericArgumentValues()
         {
             //arrange
-            string[] arguments = new string[2];
+            string[] arguments = new string[4];
             double expectedTotal = 3.25;
 
-            arguments[0] = "added=1,2,3.5,b,c,d";
-            arguments[1] = "subtracted=1.25,2.0,e,f,g,i";
+            arguments[0] = "-added";
+            arguments[1] = "1,2,3.5,b,c,d";
+            arguments[2] = "-subtracted";
+            arguments[3] = "1.25,2.0,e,f,g,i";
 
             //act
             ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
@@ -80,10 +86,11 @@ namespace Project.Test
         public void CommandLineArguments_SingleArgument_Added()
         {
             //arrange
-            string[] arguments = new string[1];
+            string[] arguments = new string[2];
             double expectedTotal = 6.50;
 
-            arguments[0] = "added=1,2,3.5";
+            arguments[0] = "-added";
+            arguments[1] = "1,2,3.5";
 
             //act
             ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
@@ -98,10 +105,11 @@ namespace Project.Test
         public void CommandLineArguments_SingleArgument_Subtracted()
         {
             //arrange
-            string[] arguments = new string[1];
+            string[] arguments = new string[2];
             double expectedTotal = -6.50;
 
-            arguments[0] = "subtracted=1,2,3.5";
+            arguments[0] = "-subtracted";
+            arguments[1] = "1,2,3.5";
 
             //act
             ArgumentsClass argumentsClass = new ArgumentsClass(arguments);
@@ -120,11 +128,13 @@ namespace Project.Test
         public void PartialClass_CommandLineArguments_ValidArgumentFormat()
         {
             //arrange
-            string[] arguments = new string[2];
+            string[] arguments = new string[4];
             double expectedTotal = 19.92;
 
-            arguments[0] = "added=1.5,2,3.5,4,43.55";
-            arguments[1] = "subtracted=1,2,5.9,25.73";
+            arguments[0] = "-added";
+            arguments[1] = "1.5,2,3.5,4,43.55";
+            arguments[2] = "-subtracted";
+            arguments[3] = "1,2,5.9,25.73";
 
             //act
             ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
@@ -139,10 +149,12 @@ namespace Project.Test
         public void PartialClasst_CommandLineArguments_InvalidArgumentFormat()
         {
             //arrange
-            string[] arguments = new string[2];
+            string[] arguments = new string[4];
 
-            arguments[0] = "added=1,2,3,4,5";
-            arguments[1] = "subtracted:6,7,8,9,10";
+            arguments[0] = "added";
+            arguments[1] = "1,2,3,4,5";
+            arguments[2] = "subtracted";
+            arguments[3] = "6,7,8,9,10";
 
             //act
             ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
@@ -168,11 +180,13 @@ namespace Project.Test
         public void PartialClass_CommandLineArguments_NonNumericArgumentValues()
         {
             //arrange
-            string[] arguments = new string[2];
+            string[] arguments = new string[4];
             double expectedTotal = 87.344;
 
-            arguments[0] = "added=55,75.8,A,d";
-            arguments[1] = "subtracted=12,31.456,Z";
+            arguments[0] = "-added";
+            arguments[1] = "55,75.8,A,d";
+            arguments[2] = "-subtracted";
+            arguments[3] = "12,31.456,Z";
 
             //act
             ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
@@ -187,10 +201,11 @@ namespace Project.Test
         public void PartialClass_CommandLineArguments_SingleArgument_Added()
         {
             //arrange
-            string[] arguments = new string[1];
+            string[] arguments = new string[2];
             double expectedTotal = 57.7726;
 
-            arguments[0] = "added=45.76756,10,2.005";
+            arguments[0] = "-added";
+            arguments[1] = "45.76756,10,2.005";
 
             //act
             ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
@@ -205,10 +220,11 @@ namespace Project.Test
         public void PartialClass_CommandLineArguments_SingleArgument_Subtracted()
         {
             //arrange
-            string[] arguments = new string[1];
+            string[] arguments = new string[2];
             double expectedTotal = -6.50;
 
-            arguments[0] = "subtracted=1,2,3.5";
+            arguments[0] = "-subtracted";
+            arguments[1] = "1,2,3.5";
 
             //act
             ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(arguments);
