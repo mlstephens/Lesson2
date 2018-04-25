@@ -20,7 +20,8 @@ namespace Lesson2
             //find that namevalue
             argumentKeyValues = ArgumentsList.SkipWhile(a => a != argumentNameValue)
                 .Skip(1)
-                .DefaultIfEmpty(string.Empty).First()
+                .DefaultIfEmpty(string.Empty)
+                .First()
                 .Split(_valueSeperator)
                 .Where(a => Double.TryParse(a, out double value))
                 .Select(Double.Parse)
