@@ -10,11 +10,11 @@ namespace Lesson2
             //handle potential upper case argument name values
             args = args.Select(a => a.ToLower()).ToArray();
 
-            //class
-            ArgumentsClass argumentsClass = new ArgumentsClass(args);
-            Console.WriteLine(argumentsClass.IsCommandLineValid
-                ? argumentsClass.GetTotal().ToString()
-                : "Invalid CommandLine.");
+            ////class
+            //ArgumentsClass argumentsClass = new ArgumentsClass(args);
+            //Console.WriteLine(argumentsClass.IsCommandLineValid
+            //    ? argumentsClass.GetTotal().ToString()
+            //    : "Invalid CommandLine.");
 
             //partial class
             ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(args);
