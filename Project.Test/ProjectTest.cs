@@ -82,7 +82,7 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void Arguments_SingleArgument_Added()
+        public void Arguments_WithSingleArgument_Added()
         {
             //arrange
             string[] argArray = new string[2];
@@ -101,7 +101,7 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void Arguments_SingleArgument_Subtracted()
+        public void Arguments_WithSingleArgument_Subtracted()
         {
             //arrange
             string[] argArray = new string[2];
