@@ -7,10 +7,9 @@ namespace Project.Test
     [TestClass]
     public class ProjectTest
     {
-        #region  ' Class Tests '
 
         [TestMethod]
-        public void CommandLineArguments_ValidArgumentFormat()
+        public void Arguments_WithValidFormat()
         {
             //arrange
             string[] argArray = new string[4];
@@ -31,7 +30,7 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void CommandLineArguments_InvalidArgumentFormat()
+        public void Arguments_WithInvalidFormat()
         {
             //arrange
             string[] argArray = new string[4];
@@ -49,7 +48,7 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void CommandLineArguments_NoArguments()
+        public void Arguments_WithNoArguments()
         {
             //arrange
             string[] argArray = Array.Empty<string>();
@@ -62,7 +61,7 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void CommandLineArguments_NonNumericArgumentValues()
+        public void Arguments_WithNonNumericValues()
         {
             //arrange
             string[] argArray = new string[4];
@@ -83,7 +82,7 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void CommandLineArguments_SingleArgument_Added()
+        public void Arguments_SingleArgument_Added()
         {
             //arrange
             string[] argArray = new string[2];
@@ -102,7 +101,7 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void CommandLineArguments_SingleArgument_Subtracted()
+        public void Arguments_SingleArgument_Subtracted()
         {
             //arrange
             string[] argArray = new string[2];
@@ -120,6 +119,5 @@ namespace Project.Test
             Assert.AreEqual(expectedTotal, actualValue);
         }
 
-        #endregion
     }
 }

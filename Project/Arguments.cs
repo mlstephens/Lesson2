@@ -11,20 +11,22 @@ namespace Lesson2
         private const string _addNameValue = "-added";
         private const string _subtractNameValue = "-subtracted";
 
-        private List<string> _argumentsList = new List<string>();
+        private string[] _argumentsList = Array.Empty<string>();
 
         public Arguments(string[] arguments)
         {
-            _argumentsList = arguments.ToList();
+            _argumentsList = arguments;
         }
 
-        private List<double> NumbersToAdd { get => GetNumbers(_addNameValue); }
+        public bool IsCommandLineValid { get => _argumentsList.Any() && (_argumentsList.Any(a => a == _addNameValue) || _argumentsList.Any(a => a == _subtractNameValue)); }
 
-        private List<double> NumbersToSubtract { get => GetNumbers(_subtractNameValue); }
+        private double[] NumbersToAdd { get => GetNumbers(_addNameValue); }
 
-        private List<double> GetNumbers(string argumentNameValue)
+        private double[] NumbersToSubtract { get => GetNumbers(_subtractNameValue); }
+
+        private double[] GetNumbers(string argumentNameValue)
         {
-            List<double> argumentKeyValues = new List<double>();
+            double[] argumentKeyValues = Array.Empty<double>();
 
             //find that namevalue
             argumentKeyValues = _argumentsList.SkipWhile(a => a != argumentNameValue)
@@ -34,12 +36,10 @@ namespace Lesson2
                 .Split(_valueSeperator)
                 .Where(a => Double.TryParse(a, out double value))
                 .Select(Double.Parse)
-                .ToList();
+                .ToArray();
 
             return argumentKeyValues;
         }
-
-        public bool IsCommandLineValid { get => _argumentsList.Any() && ( _argumentsList.Any(a => a == _addNameValue) || _argumentsList.Any(a => a == _subtractNameValue)); }
 
         public double GetTotal()
         {

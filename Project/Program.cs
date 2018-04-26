@@ -7,10 +7,7 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            //handle potential upper case argument name values
-            args = args.Select(a => a.ToLower()).ToArray();
-
-            Arguments arguments = new Arguments(args);
+            Arguments arguments = new Arguments(args.Select(a => a.ToLower()).ToArray());
 
             Console.WriteLine(arguments.IsCommandLineValid
                 ? arguments.GetTotal().ToString()
