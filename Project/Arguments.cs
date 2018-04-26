@@ -2,20 +2,20 @@
 
 namespace Lesson2
 {
-    public partial class ArgumentsPartialClass
+    public partial class Arguments
     {
         private const char _nameSeperator = '=';        
         private const string _addNameValue = "-added";
         private const string _subtractNameValue = "-subtracted";
 
-        public ArgumentsPartialClass(string[] arguments)
+        public Arguments(string[] arguments)
         {
-            Arguments = arguments;
+            ArgumentsArray = arguments;
         }
 
-        private string[] Arguments { get; }
+        private string[] ArgumentsArray { get; }
 
-        public bool IsCommandLineValid { get => Arguments.Any() && (Arguments.Any(a => a == _addNameValue) || Arguments.Any(a => a == _subtractNameValue)); }
+        public bool IsCommandLineValid { get => ArgumentsArray.Any() && (ArgumentsArray.Any(a => a == _addNameValue) || ArgumentsArray.Any(a => a == _subtractNameValue)); }
 
         private double[] NumbersToAdd { get => GetNumbers(_addNameValue); }
 

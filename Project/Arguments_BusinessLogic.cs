@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Lesson2
 {
-    public partial class ArgumentsPartialClass
+    public partial class Arguments
     {
         private const char _valueSeperator = ',';
 
@@ -12,7 +12,7 @@ namespace Lesson2
             double[] argumentKeyValues = Array.Empty<double>();
 
             //build array of numeric keyvalues
-            argumentKeyValues = Arguments.SkipWhile(a => a != argumentNameValue)
+            argumentKeyValues = ArgumentsArray.SkipWhile(a => a != argumentNameValue)
                 .Skip(1)
                 .DefaultIfEmpty(string.Empty)
                 .First()

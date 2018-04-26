@@ -7,7 +7,7 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            ArgumentsPartialClass arguments = new ArgumentsPartialClass(args.Select(a => a.ToLower()).ToArray());
+            Arguments arguments = new Arguments(args.Select(a => a.ToLower()).ToArray());
 
             Console.WriteLine(arguments.IsCommandLineValid
                 ? arguments.GetTotal().ToString()

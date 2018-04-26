@@ -21,7 +21,7 @@ namespace Project.Test
             argArray[3] = "10,15.78383,2.09";
 
             //act
-            ArgumentsPartialClass arguments = new ArgumentsPartialClass(argArray);
+            Arguments arguments = new Arguments(argArray);
             double actualValue = arguments.GetTotal();
 
             //assert
@@ -41,7 +41,7 @@ namespace Project.Test
             argArray[3] = "6,7,8,9,10";
 
             //act
-            ArgumentsPartialClass arguments = new ArgumentsPartialClass(argArray);
+            Arguments arguments = new Arguments(argArray);
 
             //assert
             Assert.IsFalse(arguments.IsCommandLineValid);
@@ -54,7 +54,7 @@ namespace Project.Test
             string[] argArray = Array.Empty<string>();
 
             //act
-            ArgumentsPartialClass arguments = new ArgumentsPartialClass(argArray);
+            Arguments arguments = new Arguments(argArray);
 
             //assert
             Assert.IsFalse(arguments.IsCommandLineValid);
@@ -73,7 +73,7 @@ namespace Project.Test
             argArray[3] = "15.00003,22.93,Z";
 
             //act
-            ArgumentsPartialClass arguments = new ArgumentsPartialClass(argArray);
+            Arguments arguments = new Arguments(argArray);
             double actualValue = arguments.GetTotal();
 
             //assert
@@ -92,7 +92,7 @@ namespace Project.Test
             argArray[1] = "103.9838,75.0393";
 
             //act
-            ArgumentsPartialClass arguments = new ArgumentsPartialClass(argArray);
+            Arguments arguments = new Arguments(argArray);
             double actualValue = arguments.GetTotal();
 
             //assert
@@ -111,7 +111,7 @@ namespace Project.Test
             argArray[1] = "364.993,1.009,-2.5,-34.0999";
 
             //act
-            ArgumentsPartialClass arguments = new ArgumentsPartialClass(argArray);
+            Arguments arguments = new Arguments(argArray);
             double actualValue = arguments.GetTotal();
 
             //assert
