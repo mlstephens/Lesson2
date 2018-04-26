@@ -12,13 +12,13 @@ namespace Project.Test
         public void Arguments_WithValidFormat()
         {
             //arrange
-            string[] argArray = new string[4];
-            double expectedTotal = 55.983;
+            string[] arguments = new string[4];
+            double expectedTotal = 26.61;
 
-            argArray[0] = "-added";
-            argArray[1] = "25.983,15.09,9,33.7838";
-            argArray[2] = "-subtracted";
-            argArray[3] = "10,15.78383,2.09";
+            arguments[0] = "-added";
+            arguments[1] = "1.5,2,3.5,4,66.60";
+            arguments[2] = "-subtracted";
+            arguments[3] = "1,2,5.9,42.09";
 
             //act
             Arguments arguments = new Arguments(argArray);
@@ -64,32 +64,13 @@ namespace Project.Test
         public void Arguments_WithNonNumericValues()
         {
             //arrange
-            string[] argArray = new string[4];
-            double expectedTotal = 77.44;
+            string[] arguments = new string[4];
+            double expectedTotal = 3.25;
 
-            argArray[0] = "-added";
-            argArray[1] = "65.38,49.99,A,d";
-            argArray[2] = "-subtracted";
-            argArray[3] = "15.00003,22.93,Z";
-
-            //act
-            Arguments arguments = new Arguments(argArray);
-            double actualValue = arguments.GetTotal();
-
-            //assert
-            Assert.IsTrue(arguments.IsCommandLineValid);
-            Assert.AreEqual(expectedTotal, actualValue);
-        }
-
-        [TestMethod]
-        public void Arguments_WithSingleArgument_Added()
-        {
-            //arrange
-            string[] argArray = new string[2];
-            double expectedTotal = 179.0231;
-
-            argArray[0] = "-added";
-            argArray[1] = "103.9838,75.0393";
+            arguments[0] = "-added";
+            arguments[1] = "1,2,3.5,b,c,d";
+            arguments[2] = "-subtracted";
+            arguments[3] = "1.25,2.0,e,f,g,i";
 
             //act
             Arguments arguments = new Arguments(argArray);
@@ -101,14 +82,33 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void Arguments_WithSingleArgument_Subtracted()
+        public void CommandLineArguments_SingleArgument_Added()
         {
             //arrange
-            string[] argArray = new string[2];
-            double expectedTotal = -329.4021;
+            string[] arguments = new string[2];
+            double expectedTotal = 6.50;
 
-            argArray[0] = "-subtracted";
-            argArray[1] = "364.993,1.009,-2.5,-34.0999";
+            arguments[0] = "-added";
+            arguments[1] = "1,2,3.5";
+
+            //act
+            Arguments arguments = new Arguments(argArray);
+            double actualValue = arguments.GetTotal();
+
+            //assert
+            Assert.IsTrue(arguments.IsCommandLineValid);
+            Assert.AreEqual(expectedTotal, actualValue);
+        }
+
+        [TestMethod]
+        public void CommandLineArguments_SingleArgument_Subtracted()
+        {
+            //arrange
+            string[] arguments = new string[2];
+            double expectedTotal = -6.50;
+
+            arguments[0] = "-subtracted";
+            arguments[1] = "1,2,3.5";
 
             //act
             Arguments arguments = new Arguments(argArray);
