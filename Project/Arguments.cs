@@ -6,8 +6,6 @@ namespace Lesson2
 {
     public class Arguments
     {
-        private const char _nameSeperator = '=';
-        private const char _valueSeperator = ',';
         private const string _addNameValue = "-added";
         private const string _subtractNameValue = "-subtracted";
 
@@ -18,7 +16,7 @@ namespace Lesson2
             _arguments = arguments;
         }
 
-        public bool IsCommandLineValid { get => _arguments.Any() && (_arguments.Any(a => a == _addNameValue) || _arguments.Any(a => a == _subtractNameValue)); }
+        public bool IsCommandLineValid { get => (_arguments.Any(a => a == _addNameValue) || _arguments.Any(a => a == _subtractNameValue)); }
 
         private double[] NumbersToAdd { get => GetNumbers(_addNameValue); }
 
@@ -26,14 +24,12 @@ namespace Lesson2
 
         private double[] GetNumbers(string argumentNameValue)
         {
-            double[] argumentKeyValues = Array.Empty<double>();
-
             //find that namevalue
-            argumentKeyValues = _arguments.SkipWhile(a => a != argumentNameValue)
+            double[] argumentKeyValues = _arguments.SkipWhile(a => a != argumentNameValue)
                 .Skip(1)
                 .DefaultIfEmpty(string.Empty)
                 .First()
-                .Split(_valueSeperator)
+                .Split(',')
                 .Where(a => Double.TryParse(a, out double value))
                 .Select(Double.Parse)
                 .ToArray();
@@ -43,7 +39,7 @@ namespace Lesson2
 
         public double GetTotal()
         {
-            return Math.Round(NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n), 4);
+            return NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n);
         }
     }
 }

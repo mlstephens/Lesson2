@@ -26,7 +26,7 @@ namespace Project.Test
 
             //assert
             Assert.IsTrue(arguments.IsCommandLineValid);
-            Assert.AreEqual(expectedTotal, actualValue);
+            Assert.AreEqual(expectedTotal, Math.Round(actualValue),4);
         }
 
         [TestMethod]
@@ -78,7 +78,7 @@ namespace Project.Test
 
             //assert
             Assert.IsTrue(arguments.IsCommandLineValid);
-            Assert.AreEqual(expectedTotal, actualValue);
+            Assert.AreEqual(expectedTotal, Math.Round(actualValue,4));
         }
 
         [TestMethod]
@@ -97,7 +97,7 @@ namespace Project.Test
 
             //assert
             Assert.IsTrue(arguments.IsCommandLineValid);
-            Assert.AreEqual(expectedTotal, actualValue);
+            Assert.AreEqual(expectedTotal, Math.Round(actualValue,4));
         }
 
         [TestMethod]
@@ -116,7 +116,7 @@ namespace Project.Test
 
             //assert
             Assert.IsTrue(arguments.IsCommandLineValid);
-            Assert.AreEqual(expectedTotal, actualValue);
+            Assert.AreEqual(expectedTotal, Math.Round(actualValue,4));
         }
 
     }
