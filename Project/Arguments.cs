@@ -28,7 +28,7 @@ namespace Lesson2
             double[] argumentKeyValues = Array.Empty<double>();
 
             //build array of numeric keyvalues
-            argumentKeyValues = _arguments.ToArray().SkipWhile(a => a != argumentNameValue)
+            argumentKeyValues = _arguments.SkipWhile(a => a != argumentNameValue)
                 .Skip(1)
                 .DefaultIfEmpty(string.Empty)
                 .First()
