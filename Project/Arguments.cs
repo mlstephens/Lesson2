@@ -11,14 +11,14 @@ namespace Lesson2
         private const string _addNameValue = "-added";
         private const string _subtractNameValue = "-subtracted";
 
-        private string[] _argumentsList = Array.Empty<string>();
+        private string[] _arguments = Array.Empty<string>();
 
         public Arguments(string[] arguments)
         {
-            _argumentsList = arguments;
+            _arguments = arguments;
         }
 
-        public bool IsCommandLineValid { get => _argumentsList.Any() && (_argumentsList.Any(a => a == _addNameValue) || _argumentsList.Any(a => a == _subtractNameValue)); }
+        public bool IsCommandLineValid { get => _arguments.Any() && (_arguments.Any(a => a == _addNameValue) || _arguments.Any(a => a == _subtractNameValue)); }
 
         private double[] NumbersToAdd { get => GetNumbers(_addNameValue); }
 
@@ -29,7 +29,7 @@ namespace Lesson2
             double[] argumentKeyValues = Array.Empty<double>();
 
             //find that namevalue
-            argumentKeyValues = _argumentsList.SkipWhile(a => a != argumentNameValue)
+            argumentKeyValues = _arguments.SkipWhile(a => a != argumentNameValue)
                 .Skip(1)
                 .DefaultIfEmpty(string.Empty)
                 .First()
