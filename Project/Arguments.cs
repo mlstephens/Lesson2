@@ -4,29 +4,24 @@ using System.Linq;
 
 namespace Lesson2
 {
-    public class ArgumentsClass
+    public class Arguments
     {
         private const char _nameSeperator = '=';
         private const char _valueSeperator = ',';
-        private const string _addArgumentName = "-added";
-        private const string _subtractArgumentName = "-subtracted";
+        private const string _addNameValue = "-added";
+        private const string _subtractNameValue = "-subtracted";
 
         private List<string> _argumentsList = new List<string>();
 
-        public ArgumentsClass(string[] arguments)
+        public Arguments(string[] arguments)
         {
             _argumentsList = arguments.ToList();
         }
 
-        private List<double> NumbersToAdd { get => GetNumbers(_addArgumentName); }
+        private List<double> NumbersToAdd { get => GetNumbers(_addNameValue); }
 
-        private List<double> NumbersToSubtract { get => GetNumbers(_subtractArgumentName); }
+        private List<double> NumbersToSubtract { get => GetNumbers(_subtractNameValue); }
 
-       /// <summary>
-       /// GetNumbers: creates an list of numeric argument key values
-       /// </summary>
-       /// <param name="argumentNameValue">the argument name value</param>
-       /// <returns>an list of numeric doubles</returns>
         private List<double> GetNumbers(string argumentNameValue)
         {
             List<double> argumentKeyValues = new List<double>();
@@ -44,12 +39,8 @@ namespace Lesson2
             return argumentKeyValues;
         }
 
-        public bool IsCommandLineValid { get => _argumentsList.Any() && ( _argumentsList.Any(a => a == _addArgumentName) || _argumentsList.Any(a => a == _subtractArgumentName)); }
+        public bool IsCommandLineValid { get => _argumentsList.Any() && ( _argumentsList.Any(a => a == _addNameValue) || _argumentsList.Any(a => a == _subtractNameValue)); }
 
-       /// <summary>
-       /// GetTotal: returns the total for the numeric argument key values
-       /// </summary>
-       /// <returns>double numeric total</returns>
         public double GetTotal()
         {
             return Math.Round(NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n), 4);
