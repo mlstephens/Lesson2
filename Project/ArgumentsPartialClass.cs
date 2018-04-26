@@ -1,25 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Lesson2
 {
     public partial class ArgumentsPartialClass
     {
         private const char _nameSeperator = '=';        
-        private const string _addArgumentName = "-added";
-        private const string _subtractArgumentName = "-subtracted";
+        private const string _addNameValue = "-added";
+        private const string _subtractNameValue = "-subtracted";
 
         public ArgumentsPartialClass(string[] arguments)
         {
-            ArgumentsList = arguments.ToList();
+            Arguments = arguments;
         }
 
-        private List<string> ArgumentsList { get; }
+        private string[] Arguments { get; }
 
-        private List<double> NumbersToAdd { get => GetNumbers(_addArgumentName); }
+        public bool IsCommandLineValid { get => Arguments.Any() && (Arguments.Any(a => a == _addNameValue) || Arguments.Any(a => a == _subtractNameValue)); }
 
-        private List<double> NumbersToSubtract { get => GetNumbers(_subtractArgumentName); }
+        private double[] NumbersToAdd { get => GetNumbers(_addNameValue); }
 
-        public bool IsCommandLineValid { get => ArgumentsList.Any() && (ArgumentsList.Any(a => a == _addArgumentName) || ArgumentsList.Any(a => a == _subtractArgumentName)); }
+        private double[] NumbersToSubtract { get => GetNumbers(_subtractNameValue); }
+
+        
     }
 }

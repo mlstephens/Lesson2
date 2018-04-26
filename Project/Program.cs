@@ -7,19 +7,10 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            //handle potential upper case argument name values
-            args = args.Select(a => a.ToLower()).ToArray();
+            ArgumentsPartialClass arguments = new ArgumentsPartialClass(args.Select(a => a.ToLower()).ToArray());
 
-            //class
-            ArgumentsClass argumentsClass = new ArgumentsClass(args);
-            Console.WriteLine(argumentsClass.IsCommandLineValid
-                ? argumentsClass.GetTotal().ToString()
-                : "Invalid CommandLine.");
-
-            //partial class
-            ArgumentsPartialClass argumentsPartialClass = new ArgumentsPartialClass(args);
-            Console.WriteLine(argumentsPartialClass.IsCommandLineValid
-                ? argumentsPartialClass.GetTotal().ToString()
+            Console.WriteLine(arguments.IsCommandLineValid
+                ? arguments.GetTotal().ToString()
                 : "Invalid CommandLine.");
         }
     }
