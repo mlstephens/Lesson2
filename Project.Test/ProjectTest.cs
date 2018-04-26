@@ -7,6 +7,8 @@ namespace Project.Test
     [TestClass]
     public class ProjectTest
     {
+        #region  ' Class Tests '
+
         [TestMethod]
         public void Arguments_WithValidFormat()
         {
