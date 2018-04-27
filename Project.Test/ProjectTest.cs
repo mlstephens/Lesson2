@@ -12,8 +12,8 @@ namespace Project.Test
         public void Arguments_WithValidFormat()
         {
             //arrange
-            string[] argArray = new string[] { "-added", "1.5,2,3.5,4,43.55", "-subtracted", "1,2,5.9,25.73" };
-            double expectedTotal = 19.92;
+            string[] argArray = new string[] { "-added", "1.5,2,3.5,4,66.60", "-subtracted", "1,2,5.9,42.09" };
+            double expectedTotal = 26.61;
 
             //act
             Arguments arguments = new Arguments(argArray);
@@ -86,8 +86,8 @@ namespace Project.Test
         public void Arguments_WithNonNumericValues()
         {
             //arrange
-            string[] argArray = new string[] { "-added", "55,75.8,A,d", "-subtracted", "12,31.456,Z" };
-            double expectedTotal = 87.344;
+            string[] argArray = new string[] { "-added", "1,2,3.5,b,c,d", "-subtracted", "1.25,2.0,e,f,g,i" };
+            double expectedTotal = 3.25;
 
             //act
             Arguments arguments = new Arguments(argArray);
@@ -102,8 +102,8 @@ namespace Project.Test
         public void Arguments_WithSingleArgument_Added()
         {
             //arrange
-            string[] argArray = new string[] { "-added", "45.76756,10,2.005" };
-            double expectedTotal = 57.7726;
+            string[] argArray = new string[] { "-added", "1,2,3.5" };
+            double expectedTotal = 6.50;
 
             //act
             Arguments arguments = new Arguments(argArray);
