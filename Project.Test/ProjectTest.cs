@@ -38,7 +38,7 @@ namespace Project.Test
         }
 
         [TestMethod]
-        public void Arguments_WithValidFormatButMissingSubtractedNumericValues()
+        public void Arguments_WithValidFormatAndLastArgumentMissingNumericValues()
         {
             //arrange
             string[] argArray = new string[] { "-added", "1,2,3,4", "-subtracted" };
