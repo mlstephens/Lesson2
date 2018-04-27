@@ -50,7 +50,7 @@ namespace Project.Test
 
             //assert
             Assert.IsTrue(arguments.IsCommandLineValid);
-            Assert.AreEqual(expectedTotal, actualTotal);
+            Assert.AreEqual(expectedTotal,actualTotal);
         }
 
         [TestMethod]
