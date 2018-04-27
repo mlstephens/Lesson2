@@ -14,7 +14,7 @@ namespace Lesson2
 
         private string[] ArgumentsArray { get; }
 
-        public bool IsCommandLineValid { get => ArgumentsArray.Any(a => a == _addNameValue) || ArgumentsArray.Any(a => a == _subtractNameValue); }
+        public bool IsCommandLineValid { get => (ArgumentsArray.Length >= 1 && ArgumentsArray.Length <= 4) && (ArgumentsArray.Any(a => a == _addNameValue) || ArgumentsArray.Any(a => a == _subtractNameValue)); }
 
         private double[] NumbersToAdd { get => GetNumbers(_addNameValue); }
 
