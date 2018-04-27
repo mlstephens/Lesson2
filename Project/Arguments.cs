@@ -9,7 +9,7 @@ namespace Lesson2
         private const string _addNameValue = "-added";
         private const string _subtractNameValue = "-subtracted";
 
-        private static string[] _arguments = Array.Empty<string>();
+        private static string[] _arguments = null;
 
         public Arguments(string[] arguments)
         {
