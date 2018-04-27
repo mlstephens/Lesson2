@@ -17,7 +17,8 @@ namespace Lesson2
             _arguments = arguments.Select(a => a.ToLower()).ToArray();
         }
 
-        public bool IsCommandLineValid { get => (_arguments.Length >= 1 && _arguments.Length <= 4) && (_arguments.Any(a => a == _addNameValue) || _arguments.Any(a => a == _subtractNameValue)) ; }
+        //public bool IsCommandLineValid { get => (_arguments.Length >= 1 && _arguments.Length <= 4) && (_arguments.Any(a => a == _addNameValue) || _arguments.Any(a => a == _subtractNameValue)) ; }
+        public bool IsCommandLineValid { get => _arguments.Any(a => a == _addNameValue) || _arguments.Any(a => a == _subtractNameValue); }
 
         private double[] NumbersToAdd { get => GetNumbers(_addNameValue); }
 
@@ -40,7 +41,7 @@ namespace Lesson2
 
         public double GetTotal()
         {
-            return NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n);
+            return Math.Round(NumbersToAdd.Sum() - NumbersToSubtract.Sum(),4);
         }
     }
 }
