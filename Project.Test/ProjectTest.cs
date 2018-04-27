@@ -51,6 +51,19 @@ namespace Project.Test
         }
 
         [TestMethod]
+        public void Arguments_WithToManyArguments()
+        {
+            //arrange
+            string[] argArray = new string[] { "-added", "1,2,3,4", "- subtracted", "5,6,7,8", "-extra", "9,10,11,12" };
+
+            //act
+            Arguments arguments = new Arguments(argArray);
+
+            //assert
+            Assert.IsFalse(arguments.IsCommandLineValid);
+        }
+
+        [TestMethod]
         public void Arguments_WithNonNumericValues()
         {
             //arrange
