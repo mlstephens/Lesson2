@@ -13,7 +13,7 @@ namespace Lesson2
 
         public Arguments(string[] arguments)
         {
-           _arguments = arguments;
+            _arguments = arguments;
         }
 
         public bool IsCommandLineValid { get => _arguments.Any(a => String.Compare(a, _addNameValue, true) == 0) || _arguments.Any(a => String.Compare(a, _subtractNameValue, true) == 0); }

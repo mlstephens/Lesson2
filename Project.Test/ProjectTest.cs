@@ -50,7 +50,7 @@ namespace Project.Test
 
             //assert
             Assert.IsTrue(arguments.IsCommandLineValid);
-            Assert.AreEqual(expectedTotal, actualTotal);
+            Assert.AreEqual(expectedTotal,actualTotal);
         }
 
         [TestMethod]
@@ -111,20 +111,20 @@ namespace Project.Test
 
             //assert
             Assert.IsTrue(arguments.IsCommandLineValid);
-            Assert.AreEqual(expectedTotal, actualTotal,4);
+            Assert.AreEqual(expectedTotal, actualTotal);
         }
 
         [TestMethod]
         public void Arguments_WithSingleArgument_Subtracted()
         {
             //arrange
-            string[] argArray = new string[] { "-subtracted", "1,2,3.5" };
+            string[] argArray = new string[] {"-subtracted", "1,2,3.5" };
             double expectedTotal = -6.50;
 
             //act
             Arguments arguments = new Arguments(argArray);
             double actualTotal = arguments.GetTotal();
-            
+
             //assert
             Assert.IsTrue(arguments.IsCommandLineValid);
             Assert.AreEqual(expectedTotal, actualTotal);
