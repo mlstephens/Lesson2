@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 namespace Lesson2
@@ -9,12 +10,12 @@ namespace Lesson2
 
         public Arguments(string[] arguments)
         {
-            ArgumentsArray = arguments.Select(a => a.ToLower()).ToArray();
+            ArgumentsArray = arguments;
         }
 
         private string[] ArgumentsArray { get; }
 
-        public bool IsCommandLineValid { get => (ArgumentsArray.Length >= 1 && ArgumentsArray.Length <= 4) && (ArgumentsArray.Any(a => a == _addNameValue) || ArgumentsArray.Any(a => a == _subtractNameValue)); }
+        public bool IsCommandLineValid { get => ArgumentsArray.Any(a => String.Compare(a, _addNameValue, true) == 0) || ArgumentsArray.Any(a => String.Compare(a, _subtractNameValue, true) == 0); }
 
         private double[] NumbersToAdd { get => GetNumbers(_addNameValue); }
 

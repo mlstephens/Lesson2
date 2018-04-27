@@ -10,7 +10,7 @@ namespace Lesson2
         private double[] GetNumbers(string argumentNameValue)
         {
             //build array of numeric keyvalues
-            double[] argumentKeyValues = ArgumentsArray.SkipWhile(a => a != argumentNameValue)
+            double[] argumentKeyValues = ArgumentsArray.SkipWhile(a => a.ToLower() != argumentNameValue.ToLower())
                 .Skip(1)
                 .DefaultIfEmpty(string.Empty)
                 .First()
@@ -24,7 +24,7 @@ namespace Lesson2
 
         public double GetTotal()
         {
-            return NumbersToAdd.Sum(n => n) - NumbersToSubtract.Sum(n => n);
+            return Math.Round(NumbersToAdd.Sum() - NumbersToSubtract.Sum(), 4);
         }
     }
 }
