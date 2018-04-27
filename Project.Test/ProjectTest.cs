@@ -12,13 +12,8 @@ namespace Project.Test
         public void Arguments_WithValidFormat()
         {
             //arrange
-            string[] argArray = new string[4];
+            string[] argArray = new string[] { "-added", "1.5,2,3.5,4,66.60", "-subtracted", "1,2,5.9,42.09" };
             double expectedTotal = 26.61;
-
-            argArray[0] = "-added";
-            argArray[1] = "1.5,2,3.5,4,66.60";
-            argArray[2] = "-subtracted";
-            argArray[3] = "1,2,5.9,42.09";
 
             //act
             Arguments arguments = new Arguments(argArray);
@@ -33,12 +28,7 @@ namespace Project.Test
         public void Arguments_WithInvalidFormat()
         {
             //arrange
-            string[] argArray = new string[4];
-
-            argArray[0] = "added";
-            argArray[1] = "1,2,3,4,5";
-            argArray[2] = "subtracted";
-            argArray[3] = "6,7,8,9,10";
+            string[] argArray = new string[] { "added", "1,2,3,4,5", "subtracted", "6,7,8,9,10" };
 
             //act
             Arguments arguments = new Arguments(argArray);
@@ -61,16 +51,24 @@ namespace Project.Test
         }
 
         [TestMethod]
+        public void Arguments_WithToManyArguments()
+        {
+            //arrange
+            string[] argArray = new string[] { "-added", "1,2,3,4", "- subtracted", "5,6,7,8", "-extra", "9,10,11,12" };
+
+            //act
+            Arguments arguments = new Arguments(argArray);
+
+            //assert
+            Assert.IsFalse(arguments.IsCommandLineValid);
+        }
+
+        [TestMethod]
         public void Arguments_WithNonNumericValues()
         {
             //arrange
-            string[] argArray = new string[4];
+            string[] argArray = new string[] { "-added", "1,2,3.5,b,c,d", "-subtracted", "1.25,2.0,e,f,g,i" };
             double expectedTotal = 3.25;
-
-            argArray[0] = "-added";
-            argArray[1] = "1,2,3.5,b,c,d";
-            argArray[2] = "-subtracted";
-            argArray[3] = "1.25,2.0,e,f,g,i";
 
             //act
             Arguments arguments = new Arguments(argArray);
@@ -85,11 +83,8 @@ namespace Project.Test
         public void Arguments_WithSingleArgument_Added()
         {
             //arrange
-            string[] argArray = new string[2];
+            string[] argArray = new string[] { "-added", "1,2,3.5" };
             double expectedTotal = 6.50;
-
-            argArray[0] = "-added";
-            argArray[1] = "1,2,3.5";
 
             //act
             Arguments arguments = new Arguments(argArray);
@@ -104,11 +99,8 @@ namespace Project.Test
         public void Arguments_WithSingleArgument_Subtracted()
         {
             //arrange
-            string[] argArray = new string[2];
+            string[] argArray = new string[] { "-subtracted", "1,2,3.5" };
             double expectedTotal = -6.50;
-
-            argArray[0] = "-subtracted";
-            argArray[1] = "1,2,3.5";
 
             //act
             Arguments arguments = new Arguments(argArray);
