@@ -7,15 +7,14 @@ namespace Lesson2
     {
         private const string _addNameValue = "-added";
         private const string _subtractNameValue = "-subtracted";
+        private string[] _arguments = null;
 
         public Arguments(string[] arguments)
         {
-            ArgumentsArray = arguments;
+            _arguments = arguments;
         }
 
-        private string[] ArgumentsArray { get; }
-
-        public bool IsCommandLineValid { get => ArgumentsArray.Any(a => String.Compare(a, _addNameValue, true) == 0) || ArgumentsArray.Any(a => String.Compare(a, _subtractNameValue, true) == 0); }
+        public bool IsCommandLineValid { get => _arguments.Any(a => String.Compare(a, _addNameValue, true) == 0) || _arguments.Any(a => String.Compare(a, _subtractNameValue, true) == 0); }
 
         private double[] NumbersToAdd { get => GetNumbers(_addNameValue); }
 

@@ -9,7 +9,7 @@ namespace Lesson2
 
         private double[] GetNumbers(string argumentNameValue)
         {
-            double[] argumentKeyValues = ArgumentsArray.SkipWhile(a => a.ToLower() != argumentNameValue.ToLower())
+            double[] argumentKeyValues = _arguments.SkipWhile(a => a.ToLower() != argumentNameValue.ToLower())
                 .Skip(1)
                 .DefaultIfEmpty(string.Empty)
                 .First()
