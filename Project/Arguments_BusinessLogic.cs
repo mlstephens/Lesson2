@@ -9,7 +9,6 @@ namespace Lesson2
 
         private double[] GetNumbers(string argumentNameValue)
         {
-            //build array of numeric keyvalues
             double[] argumentKeyValues = ArgumentsArray.SkipWhile(a => a.ToLower() != argumentNameValue.ToLower())
                 .Skip(1)
                 .DefaultIfEmpty(string.Empty)
