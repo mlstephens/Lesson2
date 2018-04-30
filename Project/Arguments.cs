@@ -25,7 +25,6 @@ namespace Lesson2
 
         private double[] GetNumbers(string argumentNameValue)
         {
-            //find that namevalue
             double[] argumentKeyValues = _arguments.SkipWhile(a => a.ToLower() != argumentNameValue.ToLower())
                 .Skip(1)
                 .DefaultIfEmpty(string.Empty)
